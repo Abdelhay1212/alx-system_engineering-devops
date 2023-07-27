@@ -3,7 +3,7 @@
 
 hour=0
 
-while [ $hour -lt 12 ]
+while [ $hour -le 12 ]
 do
     echo "Hour: $hour"
     minute=1
@@ -16,8 +16,4 @@ do
 
     ((hour++))
 
-    if [ $hour -eq 12 ]
-    then
-        echo "Hour: $hour"
-    fi
 done
