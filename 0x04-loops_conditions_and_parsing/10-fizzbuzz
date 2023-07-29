@@ -1,22 +1,17 @@
 #!/usr/bin/env bash
-# displays numbers from 1 to 100
-
-count=1
-
-while [ $count -le 100 ]
+# Displays FizzBuzz when the number is a multiple of 3 and 5 fizz for 3 buzz 5
+for ((n=1;n<=100;n++))
 do
-    if [ $((count % 3)) -eq 0 ] && [ $((count % 5)) -eq 0 ]
+    if ((n % 15 == 0))
     then
         echo "FizzBuzz"
-    elif [ $((count % 3)) -eq 0 ]
+    elif ((n % 3 == 0))
     then
         echo "Fizz"
-    elif [ $((count % 5)) -eq 0 ]
+    elif ((n % 5 == 0))
     then
         echo "Buzz"
     else
-        echo "$count"
+        echo "$n"
     fi
-    
-    ((count++))
 done
