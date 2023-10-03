@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # installing and configuring NGINX web server
 
-sudo apt update
-sudo apt install nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
 
 # starting nginx service
 sudo service nginx start
