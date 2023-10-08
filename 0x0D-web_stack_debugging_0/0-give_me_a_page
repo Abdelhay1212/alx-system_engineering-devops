@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-# Run Apache on the 265-0 Docker container.
+# Run Apache on a Docker container.
 echo "Hello Holberton" > /var/www/html/index.html
-sudo service apache2 start
