@@ -14,10 +14,10 @@ function displayInformation {
 }
 
 
-if [ $# -eq 3 ];then
+if [ $# -eq 1 ];then
     displayInformation "www" "lb-01" "web-01" "web-02";
 fi
 
-if [ $# -eq 4 ];then
+if [ $# -eq 2 ];then
     displayInformation "$2";
 fi
