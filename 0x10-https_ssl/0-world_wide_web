@@ -6,8 +6,9 @@ function displayInformation {
     local subDomains=("$@")
 
     for sub_domain in "${subDomains[@]}"; do
-        recordType=$(dig "$sub_domain.$domainName" | grep -A1 'ANSWER SECTION:' | awk '{print $4}')
-        IP=$(dig "$sub_domain.$domainName" | grep -A1 'ANSWER SECTION:' | awk '{print $5}')
+        result=$(dig "$sub_domain.$domainName" | grep -A1 'ANSWER SECTION:' | awk '{print $4, $5}')
+        recordType=$(echo "$result" | awk '{print $1}' | tr -d '\n')
+        IP=$(echo "$result" | awk '{print $2}' | tr -d '\n')
         echo "The subdomain $sub_domain is a $recordType record and points to $IP"
     done
 }
