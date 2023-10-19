@@ -2,5 +2,7 @@
 # Run software as another user
 
 username="$1"
-sudo -u "$username" whoami
-exit
+
+if [ "$#" -eq 1 ];then
+    sudo -u "$username" whoami
+fi
