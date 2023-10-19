@@ -3,4 +3,4 @@
 
 sudo su $1
 whoami
-sudo su
+exit
