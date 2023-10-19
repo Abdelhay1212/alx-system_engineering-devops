@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Run software as another user
 
-sudo su $1
-whoami
+username="$1"
+sudo -u "$username" whoami
 exit
