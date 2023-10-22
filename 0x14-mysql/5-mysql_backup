@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# MySQL backup
+
+sudo mysqldump -u root --all-databases > backup.sql
+
+current_date=$(date "+%d-%m-%Y")
+tar -czvf "$current_date".tar.gz backup.sql
