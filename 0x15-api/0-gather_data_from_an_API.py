@@ -8,16 +8,18 @@ def main():
     """Python script that, using this REST API, for a given employee ID,
     returns information about his/her TODO list progress."""
 
-    usersURL = f'https://jsonplaceholder.typicode.com/users/{sys.argv[1]}'
+    ID = sys.argv[1]
+
+    usersURL = f'https://jsonplaceholder.typicode.com/users/{ID}'
     response = requests.get(usersURL)
     response = response.json()
-    EMPLOYEE_NAME = response["name"]
+    EMP_NAME = response["name"]
 
-    todosURL = f'https://jsonplaceholder.typicode.com/todos?userId={sys.argv[1]}'
+    todosURL = f'https://jsonplaceholder.typicode.com/todos?userId={ID}'
     response = requests.get(todosURL)
     response = response.json()
 
-    TOTAL_NUMBER_OF_TASKS = len(response)
+    TOTAL_TASKS = len(response)
 
     doneTasks = []
     numOfDoneTasks = 0
@@ -26,10 +28,10 @@ def main():
             numOfDoneTasks += 1
             doneTasks.append(dic["title"])
 
-    NUMBER_OF_DONE_TASKS = numOfDoneTasks
+    NUM_TASKS = numOfDoneTasks
 
     print(
-        f"Employee {EMPLOYEE_NAME} is done with tasks({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
+        f'Employee {EMP_NAME} is done with tasks({NUM_TASKS}/{TOTAL_TASKS}):')
 
     for task in doneTasks:
         print(task)
