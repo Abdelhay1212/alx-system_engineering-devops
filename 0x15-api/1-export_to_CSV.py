@@ -15,16 +15,17 @@ def main():
 
     usersURL = '{}users/{}'.format(REST_API, ID)
     response = requests.get(usersURL).json()
-    USERNAME = response["username"]
+    USERNAME = response.get("username")
 
     todosURL = '{}todos?userId={}'.format(REST_API, ID)
     response = requests.get(todosURL).json()
+    userId = response[0].get("userId")
 
     with open(f'{ID}.csv', mode='w', newline='') as file:
-        writer = csv.writer(file)
+        writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         data = []
         for dic in response:
-            data.append([dic['userId'], USERNAME,
+            data.append([userId, USERNAME,
                         dic['completed'], dic['title']])
 
         for row in data:
