@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Export to CSV """
-import requests
 import csv
+import requests
 import sys
 
 
@@ -24,8 +24,8 @@ def main():
         writer = csv.writer(file)
         data = []
         for dic in response:
-            data.append([dic["userId"], USERNAME,
-                        dic["completed"], dic["title"]])
+            data.append([dic['userId'], USERNAME,
+                        dic['completed'], dic['title']])
 
         for row in data:
             writer.writerow(row)
