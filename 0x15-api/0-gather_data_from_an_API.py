@@ -34,7 +34,7 @@ def main():
           f"done with tasks({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
 
     for task in doneTasks:
-        print(f"\t{task}")
+        print("\t{}".format(task))
 
 
 if __name__ == "__main__":
